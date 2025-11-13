@@ -50,3 +50,4 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
     queryset = models.LeaderboardEntry.objects.all()
     serializer_class = serializers.LeaderboardEntrySerializer
     permission_classes = [permissions.AllowAny]
+
