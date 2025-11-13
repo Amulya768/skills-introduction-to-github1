@@ -1,0 +1,104 @@
+/* App styling for OctoFit Tracker */
+:root{
+  --bg-start: #0f172a;
+  --bg-end: #0b4f6c;
+  --card-bg: rgba(255,255,255,0.04);
+  --accent: #ff7f50;
+  --muted: #cbd5e1;
+  --link: #ffd166;
+  --table-head: rgba(255,255,255,0.06);
+  --btn-primary-bg: #ff7f50;
+  --btn-primary-border: #ff6a33;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  color: var(--muted);
+  min-height: 100vh;
+}
+
+.container h1 {
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-logo {
+  height: 48px;
+  width: 48px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  padding: 6px;
+}
+
+.nav-pills .nav-link {
+  margin-right: 6px;
+  color: var(--muted);
+}
+.nav-pills .nav-link.active {
+  background-color: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.card-json {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #e6eef6;
+}
+
+.table-small td, .table-small th {
+  vertical-align: middle;
+  color: #e6eef6;
+}
+
+table.table thead th{
+  background: var(--table-head);
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-border);
+  color: #0b2a2f;
+}
+.btn-link {
+  color: var(--link);
+}
+
+a {
+  color: var(--link);
+}
+
+.modal.d-block {
+  display: block;
+  background-color: rgba(2,6,23,0.6);
+}
+.modal.d-block .modal-dialog {
+  margin-top: 8vh;
+}
+
+.favicon-placeholder{
+  width: 16px;
+  height: 16px;
+}
+
