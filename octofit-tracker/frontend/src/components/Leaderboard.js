@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { getApiEndpoint } from '../apiConfig';
 
 const endpointName = 'leaderboard';
-const baseUrl = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api`;
-const endpoint = `${baseUrl}/${endpointName}/`;
+const endpoint = getApiEndpoint(endpointName);
 
 export default function Leaderboard() {
   const [data, setData] = useState([]);
@@ -36,13 +36,13 @@ export default function Leaderboard() {
   return (
     <div className="card">
       <div className="card-header d-flex align-items-center justify-content-between">
-        <h5 className="mb-0">Leaderboard</h5>
+        <h5 className="card-title mb-0">Leaderboard</h5>
       </div>
       <div className="card-body">
         {loading && <p>Loading...</p>}
         {!loading && (
           <div className="table-responsive">
-            <table className="table table-striped table-hover table-sm align-middle">
+            <table className="table table-striped table-hover table-sm align-middle table-small">
               <thead>
                 <tr>
                   <th style={{width: '5%'}}>#</th>
@@ -58,8 +58,10 @@ export default function Leaderboard() {
                     <td>{item.id || item.name || item.username || '-'}</td>
                     <td className="card-json">{JSON.stringify(item)}</td>
                     <td>
-                      <button className="btn btn-sm btn-primary me-2" onClick={() => openModal(item)}>View</button>
-                      <a className="btn btn-sm btn-link" href={`${endpoint}${item.id ? item.id + '/' : ''}`} target="_blank" rel="noreferrer">API</a>
+                      <div className="btn-group" role="group">
+                        <button className="btn btn-sm btn-primary" onClick={() => openModal(item)}>View</button>
+                        <a className="btn btn-sm btn-link" href={`${endpoint}${item.id ? item.id + '/' : ''}`} target="_blank" rel="noreferrer">API</a>
+                      </div>
                     </td>
                   </tr>
                 ))}

@@ -6,6 +6,7 @@ import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
+import { getApiEndpoint } from './apiConfig';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           </div>
         </div>
 
-        <nav className="">
+        <nav className="" role="navigation" aria-label="Main navigation">
           <ul className="nav nav-pills">
             <li className="nav-item">
               <NavLink className={({isActive}) => 'nav-link' + (isActive ? ' active' : '')} to="/activities">Activities</NavLink>
@@ -55,3 +56,6 @@ function App() {
 }
 
 export default App;
+
+// show a sample endpoint in the browser console to help debugging routing/API
+console.log('Sample API endpoint (activities):', getApiEndpoint('activities'));
