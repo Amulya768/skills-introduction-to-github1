@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.response import Response
+from django.http import JsonResponse
+import os
 
 from . import views
 
@@ -26,8 +29,28 @@ router.register(r'activities', views.ActivityViewSet, basename='activity')
 router.register(r'workouts', views.WorkoutViewSet, basename='workout')
 router.register(r'leaderboard', views.LeaderboardViewSet, basename='leaderboard')
 
+
+def codespace_api_root(request, format=None):
+    """Return API root using Codespace domain when available (does not modify views.py)."""
+    cs = os.environ.get('CODESPACE_NAME')
+    if cs:
+        base = f"https://{cs}-8000.app.github.dev"
+    else:
+        # fallback to request host/scheme
+        base = request.build_absolute_uri('/').rstrip('/')
+
+    # Return a plain JSON response so Django can serve this view without DRF renderer context
+    return JsonResponse({
+        'users': f"{base}/api/users/",
+        'teams': f"{base}/api/teams/",
+        'activities': f"{base}/api/activities/",
+        'workouts': f"{base}/api/workouts/",
+        'leaderboard': f"{base}/api/leaderboard/",
+    })
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.api_root, name='api-root'),
+    path('', codespace_api_root, name='api-root'),
     path('api/', include(router.urls)),
 ]
