@@ -58,6 +58,11 @@ body {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
+.card-header {
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
 .card-json {
   white-space: pre-wrap;
   word-break: break-word;
@@ -68,6 +73,10 @@ body {
 
 .table-small td, .table-small th {
   vertical-align: middle;
+  color: #e6eef6;
+}
+
+.table td, .table th {
   color: #e6eef6;
 }
 

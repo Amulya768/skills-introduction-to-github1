@@ -34,13 +34,15 @@ export default function Leaderboard() {
   }
 
   return (
-    <div>
-      <h2 className="h4">Leaderboard</h2>
-      {loading && <p>Loading...</p>}
-      {!loading && (
-        <div className="card">
-          <div className="card-body">
-            <table className="table table-striped table-small">
+    <div className="card">
+      <div className="card-header d-flex align-items-center justify-content-between">
+        <h5 className="mb-0">Leaderboard</h5>
+      </div>
+      <div className="card-body">
+        {loading && <p>Loading...</p>}
+        {!loading && (
+          <div className="table-responsive">
+            <table className="table table-striped table-hover table-sm align-middle">
               <thead>
                 <tr>
                   <th style={{width: '5%'}}>#</th>
@@ -64,27 +66,27 @@ export default function Leaderboard() {
               </tbody>
             </table>
           </div>
-        </div>
-      )}
+        )}
 
-      {showModal && (
-        <div className="modal d-block" tabIndex="-1" role="dialog">
-          <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Leaderboard Entry</h5>
-                <button type="button" className="btn-close" aria-label="Close" onClick={closeModal}></button>
-              </div>
-              <div className="modal-body">
-                <pre className="card-json">{JSON.stringify(modalContent, null, 2)}</pre>
-              </div>
-              <div className="modal-footer">
-                <button className="btn btn-secondary" onClick={closeModal}>Close</button>
+        {showModal && (
+          <div className="modal d-block" tabIndex="-1" role="dialog">
+            <div className="modal-dialog modal-lg" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Leaderboard Entry</h5>
+                  <button type="button" className="btn-close" aria-label="Close" onClick={closeModal}></button>
+                </div>
+                <div className="modal-body">
+                  <pre className="card-json">{JSON.stringify(modalContent, null, 2)}</pre>
+                </div>
+                <div className="modal-footer">
+                  <button className="btn btn-secondary" onClick={closeModal}>Close</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

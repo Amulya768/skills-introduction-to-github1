@@ -14,12 +14,12 @@ function App() {
         <div className="app-brand">
           <img src="/octofitapp-small.svg" alt="OctoFit" className="app-logo" />
           <div>
-            <h1>OctoFit Tracker</h1>
+            <h1 className="h3">OctoFit Tracker</h1>
             <div className="text-muted">Track activities, teams, workouts and leaderboards</div>
           </div>
         </div>
 
-        <nav>
+        <nav className="">
           <ul className="nav nav-pills">
             <li className="nav-item">
               <NavLink className={({isActive}) => 'nav-link' + (isActive ? ' active' : '')} to="/activities">Activities</NavLink>
