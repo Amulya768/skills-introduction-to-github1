@@ -39,7 +39,7 @@ class Command(BaseCommand):
         teams_col.insert_one({
             'id': 2,
             'name': 'dc',
-            'description': 'Team DC1',
+            'description': 'Team DC',
             'created_at': now_iso
         })
         marvel_id = 1

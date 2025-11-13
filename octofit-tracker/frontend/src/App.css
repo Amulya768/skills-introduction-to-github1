@@ -50,7 +50,7 @@ body {
 }
 .nav-pills .nav-link.active {
   background-color: rgba(255,255,255,0.08);
-  color: #fff;
+  color: #eec0c0;
 }
 
 .card {
@@ -82,7 +82,7 @@ body {
 
 table.table thead th{
   background: var(--table-head);
-  color: #fff;
+  color: #f6ecec;
 }
 
 .btn-primary {
